@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+
+    <select id="slc_cafe">
+        <option value="0">Selecione o prato no Café da Manhã</option>
+        <option value="ovo">Ovos</option>
+        <option value="leite">Leite de Arroz</option>
+        <option value="bacon">Bacon</option>
+    </select><br><br>
+
+    <select id="slc_almoco">
+        <option value="0">Selecione o prato no Almoço</option>
+        <option value="bife">Bife</option>
+        <option value="hamburger">Hamburger de soja</option>
+        <option value="frango">Frango grelhado</option>
+    </select><br><br>
+   
+
+    <select id="slc_janta">
+        <option value="0">Selecione o prato no Jantar</option>
+        <option value="cupim">Cupim</option>
+        <option value="picanha">Picanha de soja</option>
+        <option value="coracao">Coração</option>
+    </select><br><br>  
+   
+
+    <button onclick="vegano()">Sou VEGANO</button><br><br>
+
+    <span id="resposta"></span>
+    
+</body>
+</html>
+
+<script>
+
+    function vegano() {
+
+        var cafe = slc_cafe.value;
+        var almoco = slc_almoco.value;
+        var janta = slc_janta.value;
+
+      if (cafe == "leite" && almoco == "hamburger" && janta == "picanha") {
+        
+        resposta.innerHTML = `Sim, você é vegano!`;
+
+      } else {
+          
+        resposta.innerHTML = `Não, você não é vegano!`;
+
+      }
+
+    }
+
+</script>

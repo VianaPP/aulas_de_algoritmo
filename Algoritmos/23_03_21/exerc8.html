@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+
+<body>
+
+    Qual a Temperatura do Ambiente? <input type="text" id="inp_temp"><br><br>
+   
+    <button onclick="analisar()">Verificar clima</button><br><br>
+
+    <img id="img_resposta" src="">
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar() {
+        if (inp_temp.value >= 10 ) {
+
+            img_resposta.src = "https://conteudo.imguol.com.br/c/entretenimento/e3/2017/12/20/lichia-1513809811522_v2_1804x1662.jpg";
+
+        } else {
+
+            img_resposta.src = "https://thumbs.dreamstime.com/b/fruta-podre-casca-da-laranja-%C3%A9-preta-e-marrom-com-fungo-97233204.jpg";
+
+        }
+    }
+
+
+
+</script>

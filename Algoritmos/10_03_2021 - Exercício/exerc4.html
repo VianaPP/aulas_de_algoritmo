@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    
+    Qual o valor da passagem? <input type="text" id="inp_passagem"><br><br>
+
+    <select id="select_passagem">
+        <option value="1">Inteira</option>
+        <option value="0.5">Meia passagem</option>
+        <option value="0.9">Cartão fidelidade</option>
+    </select><br><br>
+
+    <button onclick="calc()">Calcular passagem</button> <br><br>
+
+    <span id="resul"></span>
+
+</body>
+</html>
+
+<script>
+
+function calc(){
+    var valor_passagem = Number(inp_passagem.value);
+    var calc = valor_passagem * Number(select_passagem.value);
+
+    resul.innerHTML = `Você vai pagar R$${calc.toFixed(2)} por passagem`;
+  
+}
+
+</script>

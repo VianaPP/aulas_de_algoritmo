@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    
+    <select id="frutas">
+        <option value="15">Manga</option>
+        <option value="10">Lichia</option>
+        <option value="5">Jambu</option>
+    </select><br><br>
+
+    <button onclick="falar()">Falar sobre a fruta</button> <br><br>
+
+    <span id="resp"></span>
+
+
+</body>
+</html>
+
+<script>
+
+    function falar(){
+        var fruta = frutas.value;
+
+        resp.innerHTML = `Sua fruta favorita tem ${fruta} calorias por unidade`;
+    }
+
+
+</script>

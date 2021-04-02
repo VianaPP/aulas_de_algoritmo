@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro Programa</title>
+</head>
+<body>
+    
+    <img src="https://media-exp1.licdn.com/dms/image/C4D03AQHhqA6FDzJQLw/profile-displayphoto-shrink_200_200/0/1586660454032?e=1620864000&v=beta&t=frhE2Cqn_VdzyaOHf8dgLIlmoAcb3KL1U2d7juA1pgg" 
+        alt="">
+
+        <h2>Gestoque! Guarde bem o que está contigo!</h2>
+
+        Nome do produto <input type="text" id="inp_nome"><br>
+        Unidade <input type="text" id="inp_unidade" placeholder="unidades, quilos, litros"> <br>
+        Quantidade em estoque <input type="text" id="inp_unidade_estoque"><br>
+        Valor de compra por Unidade <input type="text" id="inp_valor_compra_unidade"><br>
+        Valor de venda por Unidade <input type="text" id="inp_valor_venda_unidade"> <br><br>
+
+        <button onclick="analisa()">Análisar estoque</button><br><br>
+       
+        <img src="https://thumbs.gfycat.com/LimpSplendidBlacklemur-max-1mb.gif" 
+        id="img_gif" style="display: none;"><br><br>
+        <span id="resposta"></span>
+        
+
+       
+
+       
+
+</body>
+</html>
+
+<script>
+
+function analisa(){
+
+    var nome_produto = inp_nome.value;//C
+    var unidade = Number(inp_unidade.value);//B
+    var qtd_estoque = Number(inp_unidade_estoque.value);//A
+    var valor_compra_unidade = Number(inp_valor_compra_unidade.value);// D - esse //X
+    var valor_venda_unidade = Number(inp_valor_venda_unidade.value);//D * A // Y
+    var lucro = (valor_venda_unidade / valor_compra_unidade - 1 ) * 100;
+
+    img_gif.style.display = "block";
+
+    resposta.innerHTML = `<b><i>Resultado da análise</i></b><br>`;
+    resposta.innerHTML += `Você possui um total de <b style=" color: aqua;">${qtd_estoque}</b> <b style=" color: darkgreen;">${unidade}</b> de <b style=" color: orange;">${nome_produto}</b> em estoque.<br>`;
+    resposta.innerHTML += `Você tem um total de R$ <b style=" color: purple;">${valor_venda_unidade * qtd_estoque}</b> em estoque de <b style=" color: orange;">${nome_produto}</b>.<br>`;
+    resposta.innerHTML += `Vai lucrar R$ <b style=" color: yellowgreen;">${valor_venda_unidade - valor_compra_unidade}</b> em cada <b style=" color: orange;">${nome_produto}</b> vendido.<br><br>`;
+    resposta.innerHTML += `Como comprou cada unidade por <b style=" color: blue;">${valor_compra_unidade}</b> e vai vender por <b style=" color: salmon;">${valor_venda_unidade}</b>, sua margem de lucro será de <b style=" color: red;">${lucro.toFixed(1)}%</b>.<br><br>`;
+
+    var porcentagem_compra = (valor_compra_unidade / valor_venda_unidade) * 100;
+    var porcentagem_venda = 100 - porcentagem_compra;
+
+    resposta.innerHTML += `<div style=" background-color: red; height: 30px; width: ${porcentagem_compra}%; float: left;"></div>`;
+    resposta.innerHTML += `<div style=" background-color: green; height: 30px; width: ${porcentagem_venda}%; float: left;"></div><br><br>
+    <b>Composição do preço</b>`;
+
+
+}
+
+</script>

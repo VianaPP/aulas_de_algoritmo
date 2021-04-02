@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+</head>
+<body>
+    
+    Qual o valor da Renda Familiar? <input type="text" id="inp_valor_renda"><br><br>
+    Qual o valor da prestação? <input type="text" id="inp_prestacao"><br><br>
+
+    <button onclick="financiamento()">Verificar financiamento</button><br><br>
+    
+    <span id="resposta"></span>
+
+</body>
+</html>
+
+<script>
+    
+    function financiamento(){
+        var renda = Number(inp_valor_renda.value);
+        var prestacao = Number(inp_prestacao.value);
+        var prestacao_correspondente = (prestacao / renda) * 100;
+        var trinta_porcento = renda * 0.30;
+
+        resposta.innerHTML = `a prestação corresponde a ${prestacao_correspondente.toFixed(2)}% da renda familiar<br><br>`;
+        
+        if(prestacao_correspondente > trinta_porcento){
+            resposta.innerHTML += `-----------------------------------------------------------------<br>`;
+            resposta.innerHTML += `------ <b style="color: red;">Será necessário complementar a renda familiar</b> -----<br>`;
+            resposta.innerHTML += `-----------------------------------------------------------------`;
+        }
+
+    }
+
+
+
+</script>

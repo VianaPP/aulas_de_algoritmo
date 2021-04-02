@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Substitutiva</title>
+</head>
+<body>
+    
+    <div id="imagens">
+        <img src="https://claudia.abril.com.br/wp-content/uploads/2019/01/batata.png" alt="" style="float: left;">
+        <img src="https://static8.depositphotos.com/1343666/818/i/600/depositphotos_8184815-stock-photo-carrot-isolated-on-white.jpg" alt="">
+    </div><br><br><br><br><br>
+
+        Quantidade em estoque <input type="text" id="inp_qtd_batata">
+        Valor unitário <input type="text" id="inp_valor_batata"><span> ||||</span>
+        Quantidade em estoque <input type="text" id="inp_qtd_cenoura">
+        Valor unitário <input type="text" id="inp_valor_cenoura"> <br><br>
+
+        <button onclick="analisa()">Analisar os Estoques</button> <br><br>
+
+        <span id="resposta"></span>
+        
+</body>
+</html>
+<script>
+    function analisa(){
+
+        var batata = Number(inp_qtd_batata.value);
+        var cenoura = Number(inp_qtd_cenoura.value);
+        var valor_batata = Number(inp_valor_batata.value);
+        var valor_cenoura = Number(inp_valor_cenoura.value);
+        var soma = batata * valor_batata + cenoura * valor_cenoura;
+
+        resposta.innerHTML = ` 
+        <i  style="background-color: yellow;" ><b><u>Análise de Estoque</i></b></u><br>
+        <i>Quantidade total de legumes = ${batata + cenoura}</i><br>
+        <i  style="color: blue;" >Valor de estoque de Batatas = ${batata * valor_batata} </i><br>
+        <i  style="color: red;" > Valor de estoque de Cenouras = ${cenoura * valor_cenoura} </i><br><br>
+       
+        <img src="https://claudia.abril.com.br/wp-content/uploads/2019/01/batata.png"  style="float: left; height: ${((batata * valor_batata)*200) / soma}px;">
+        <img src="https://static8.depositphotos.com/1343666/818/i/600/depositphotos_8184815-stock-photo-carrot-isolated-on-white.jpg" style="height: ${((cenoura * valor_cenoura)*200) / soma}px;">              
+        `;
+
+    }
+
+</script>

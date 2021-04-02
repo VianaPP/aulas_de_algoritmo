@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12 - innerHTML</title>
+</head>
+
+<body>
+
+    <h2>Qual a real de cada time?</h2>
+
+    <button onclick="corinthians()">Corinthians</button>
+    <button onclick="palmeiras()">Palmeiras</button>
+    <button onclick="santos()">Santos</button>
+    <button onclick="sao_paulo()">São Paulo</button>
+    <br><br>
+    <div id="div_msg">
+        Aqui será a mensagem do time escolhido
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    /*  o innerHTML altera o conteúdo do corpo da tag especificada
+        É possível passar outras tags (normalmente as de edição <br>, <b>, <i>, ...) */
+    
+    function corinthians() {
+        div_msg.innerHTML = '<h1>Vai Corinthians!</h1>';
+    }
+
+    function palmeiras() {
+        div_msg.innerHTML = "Verdão elétrico! <br>    O Parmeira não tem mundial!!!";
+    }
+
+    function santos() {
+        div_msg.innerHTML = 'Dá-lhe <b>peixe</b>!';
+    }
+
+    function sao_paulo() {
+        div_msg.innerHTML = 'Salve o <i>tricolor</i> paulista!';
+    }
+
+</script>

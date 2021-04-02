@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+
+<body>
+
+    Quanto tempo o arroz esta cozinhando? <input type="text" id="inp_tempo"><br><br>
+
+    <button onclick="provar()">Provar arroz</button><br><br>
+
+   <span id="resposta"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function provar() {
+        if (inp_tempo.value == 5) {
+
+            resposta.innerHTML = `Parabéns! Arroz perfeito! <br>
+            <img src="https://3.bp.blogspot.com/-EoDapwUDeHo/WfCH-zQFMSI/AAAAAAAABCE/PcXO-PbmAJk9TAPoCLowA82YPYBwgj7nQCLcBGAs/s1600/arroz-branco-soltinho-1016-1400x800.jpg">`;
+
+        } else if (inp_tempo.value > 5) {
+
+            resposta.innerHTML = `Arroz cru! <br>
+            <img src="https://img.itdg.com.br/tdg/images/recipes/000/021/605/142578/142578_original.jpg?mode=crop&width=710&height=400">`;
+
+        } else {
+
+            resposta.innerHTML = `Pcozido demais!! <br>
+            <img src="https://media.jcorreiodopovo.com.br/2014/11/1417113775.jpg">`;
+
+        }
+    }
+
+
+
+</script>

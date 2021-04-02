@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 30</title>
+</head>
+<body>
+
+    <select  id="slc_sabor">
+        <option value="1">Uva</option>
+        <option value="2">Morango</option>
+        <option value="3">Limão</option>
+        <option value="4">Chocolate</option>
+        <option value="5">Creme</option>
+    </select><br><br>
+
+    <button onclick="picole()">Vou tomar o Picolé?</button> <br><br>
+
+    <span id="resposta"></span>
+    
+</body>
+</html>
+
+<script>
+
+    function picole() {
+
+        if (slc_sabor.value == 2 || slc_sabor.value == 4) {
+
+            alert("Oba, Vou tomar o picolé!");
+
+        } else {
+
+            alert("Deu ruim, não gosto desse sabor :(");
+            
+        }
+        
+    }
+
+</script>

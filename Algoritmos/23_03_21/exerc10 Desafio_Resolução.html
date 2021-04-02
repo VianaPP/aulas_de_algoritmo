@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+
+    Quantas partidas um atacante jogou? <input type="text" id="inp_partidas"><br><br>
+    Quantos gols ele marcou? <input type="text" id="inp_gols"><br><br>
+
+    <button onclick="avaliar()">Estudar atacante</button><br><br>
+
+    <span id="resposta"></span><br><br>
+    <img src="" id="img_jogador">
+</body>
+
+</html>
+
+<script>
+
+    // A frase "Melhor mudar de posição" e a foto de um jogador de futebol bem ruim, caso a média for menor que 0.2
+
+    // A frase "Atacante mediano" e a foto de um jogador de futebol comum, caso a média for entre 0.2 e 0.6
+
+    // A frase "Atacante de futuro" e a foto de um bom jogador de futebol, caso a média for acima de 0.6
+    function avaliar() {
+        var media_jogador = Number(inp_gols.value) / Number(inp_partidas.value);
+
+        if (media_jogador > 0.6) {
+
+
+            resposta.innerHTML = `Atacante de futuro<br>`;
+            img_jogador.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswZq_-0qxaTKI4R48WZmRLtl3BVUdfNO7-NOyn8wtvNlPORuXbL1TBO7IBAGXfOMf32s&usqp=CAU";
+
+        } else {
+
+            if (media_jogador < 0.2) {
+
+                resposta.innerHTML = `Melhor mudar de posição<br>`;
+                img_jogador.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPEpFDc0XDUALs1rxqBb4RiwI3dzxEpQrH-sUTcShyJdu6i0pA5Tk_WR8dUSy2GjSDAEg&usqp=CAU";
+
+            } else {
+
+                resposta.innerHTML = `Atacante mediano<br>`;
+                img_jogador.src = "https://www.lance.com.br/files/article_main/uploads/2018/04/16/5ad4f1436d8ed.jpeg";
+
+            }
+        }
+
+        resposta.innerHTML += `Sua média de gols/partida é de ${media_jogador.toFixed(1)}`;
+
+
+    }
+
+
+</script>

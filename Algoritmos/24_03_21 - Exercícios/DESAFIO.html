@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+
+    Qual a Renda familiar? <input type="text" id="inp_renda"><br><br>
+
+    <select id="adultos">
+        <option value="0"> Quantidade de adultos na familia </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br><br>
+
+    <button onclick="verificar()">Verificar classe social</button><br><br>
+
+    <span id="resposta"></span>
+
+
+</body>
+
+</html>
+
+<script>
+
+    function verificar() {
+        var media_pessoa = inp_renda.value / adultos.value;
+
+        // if (inp_renda.value > 16263) {
+        //     resposta.innerHTML = `<b style="color :yellowgreen;">Classe A</b><br><br>
+        //     <img src="https://media0.giphy.com/media/bwLI2JHYHpD4c3UosX/giphy.gif"><br><br>`;
+        // }
+        // else if (inp_renda.value < 5233) {
+
+        //     resposta.innerHTML = `Classe C`;
+
+        // } 
+        // else if (inp_renda.value < 5233) {
+
+        //     resposta.innerHTML = `Classe C`;
+
+        // } else {
+
+        //     resposta.innerHTML = `Classe D e E`;
+
+        // }
+        if (inp_renda.value < 2166) {
+            resposta.innerHTML = `Classe D e E`;
+
+        } else {
+            if (inp_renda.value < 16263) {
+
+                resposta.innerHTML = `<b style="color : pink;">Classe B</b><br><br>
+                <img src="https://media0.giphy.com/media/bwLI2JHYHpD4c3UosX/giphy.gif"><br><br>`;
+
+            } else if (inp_renda.value > 16263) {
+                resposta.innerHTML = `<b style="color :yellowgreen;">Classe A</b><br><br>
+                <img src="https://media0.giphy.com/media/bwLI2JHYHpD4c3UosX/giphy.gif"><br><br>`;
+            } else {
+                resposta.innerHTML = `Classe C`;
+            }
+
+        }
+
+
+        resposta.innerHTML += `<br><br>A renda média de cada adulto é R$${media_pessoa.toFixed(2)}`;
+    }
+
+
+
+</script>
