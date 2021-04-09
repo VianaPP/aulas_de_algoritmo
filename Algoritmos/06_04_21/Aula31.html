@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 31</title>
+</head>
+<body>
+    <h2>Operações com textos</h2>
+
+    Digite uma frase: <input type="text" id="inp_frase" onkeyup="analisa()">
+    <br><br>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>    
+    function analisa() {
+        var frase = inp_frase.value;
+        div_resultado.innerHTML = ``;
+        div_resultado.innerHTML += `Quantos caracteres? ${frase.length} <br>`;
+        div_resultado.innerHTML += `Ele começa com "e"? ${frase.startsWith('e')} <br>`;
+        div_resultado.innerHTML += `Ele começa com "e" ou "E"? ${frase.startsWith('e' || 'E')} <br>`;
+        
+    }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+
+    <button onclick="sortear()"> Sortear</button><br><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function sortear() {
+        var numero_aleatorio = Math.random();
+        resposta.innerHTML +=`${numero_aleatorio} <br>`;
+
+        if (numero_aleatorio > 0.5) {
+            
+            resposta.innerHTML += `Eu Arredondaria para 1 <br><br>`;
+
+        } else {
+            
+            resposta.innerHTML += `Eu Arredondaria para 0 <br><br>`;
+
+        }
+    }
+
+</script>

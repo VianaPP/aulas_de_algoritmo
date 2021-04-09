@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    
+    <h1>Sorteios Realizados: <u id="qtd_sorteio">0</u></h1>
+
+    Digite seu numero da sorte: <input id="inp_numero" placeholder="De 1 até 10"><br><br>
+
+    <button onclick="sorteio()">Sortear</button><br><br>
+
+    <div id="resposta"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var contador = 0;
+
+    function sorteio() {
+        var num_sorte = inp_numero.value;
+
+        if (num_sorte <= 0 || num_sorte > 10) {
+
+            alert('Ops! o numero digitado é de 1 até 10!');
+            resposta.innerHTML = "";
+
+        } else {
+
+           var num_sorteado = parseInt((Math.random()*10)+1);
+           resposta.innerHTML = `Numero Sorteado: ${num_sorteado}`;
+           contador ++;
+           qtd_sorteio.innerHTML = `${contador}`
+
+           if(num_sorteado == num_sorte){
+
+            resposta.innerHTML += `<br> <b>Parabéns, você foi sorteado(a) após ${contador} sorteios!</b>`;
+
+           }
+
+
+        }
+
+    }
+
+</script>

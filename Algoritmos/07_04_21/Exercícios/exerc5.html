@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+
+    <button onclick="avalia()">Avaliar!</button><br><br>
+
+    <div id="resposta"></div>    
+    
+</body>
+</html>
+
+<script>
+
+    var contador = 0;
+    var numero = 0;
+
+    function avalia() {
+
+        contador++;
+
+        var num_aleatorio = (Math.random()* 5).toFixed(1);
+        numero = Number(numero) + Number(num_aleatorio);
+
+        resposta.innerHTML = `Nota recebida: ${num_aleatorio}`;        
+        
+        var media =  numero / contador;
+        
+        resposta.innerHTML += `<br>Média total: ${media}`;
+
+        if (media >= 0 && media <= 0.5) {
+
+        resposta.innerHTML += `<br>Muito triste <br> <img src="imgs/Sad_Face.png" alt="img">`;
+            
+        } else if (media > 0.5 && media <= 1.5){
+
+            resposta.innerHTML += `<br>Meio triste <br> <img src="imgs/Confused_Face.png" alt="img">`;
+
+        } else if (media > 1.5 && media <= 3.5 ){
+            
+            resposta.innerHTML += `<br>Neutro <br><img src="imgs/Unamused_Face.png" alt="img">`;
+
+        } else if (media > 3.5 && media <= 4.5 ){
+            
+            resposta.innerHTML += `<br>Feliz <br> <img src="imgs/Slightly_Smiling_Face.png" alt="img">`;
+
+        } else{
+
+            resposta.innerHTML += `<br>Muito Feliz <br> <img src="imgs/Smiling_Emoji_with_Eyes.png" alt="img">`;
+
+        }
+    }
+
+</script>
