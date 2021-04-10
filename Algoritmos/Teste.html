@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="texte.css">
+    <title>teste</title>
+</head>
+
+<body>
+
+
+    <div id="menu_click" class="menu">
+        <button style="display: none;" id="butao_menu" onclick="sair()">Sair</button>
+    </div>
+
+    <div id="header" class="header">
+        <div class="caixa">
+            <button id="butao" onclick="menu()">---</button>
+            <h1>Meu Site</h1>
+            <input type="text" placeholder="Pesquisa">
+        </div>
+    </div>
+
+
+    <div id="banner" class="banner">
+        <div class="caixa">
+            <span>meu banner</span>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+<script>
+//   width: 1149px;
+    function menu() {
+
+        header.style.width = "1149px";
+        banner.style.width = "1149px";
+        header.style.float = "left";
+        banner.style.float = "left";
+        menu_click.style.opacity = "1";
+
+        butao.style.display = "none";
+        butao_menu.style.display = "inline";        
+    }
+
+    function sair() {
+
+        menu_click.style.opacity = "0";
+
+        butao_menu.style.display = "none";  
+        butao.style.display = "inline"; 
+        header.style.width = "100%";
+        banner.style.width = "100%";
+        header.style.float = "none";
+        banner.style.float = "none";
+
+}
+
+</script>

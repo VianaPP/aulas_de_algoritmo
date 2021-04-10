@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.header{
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.caixa{
+    max-width: 900px;
+    height: 100%;
+ 
+    /* text-align: center; */
+}
+
+.caixa h1{
+    border: 0;
+    margin: 0;
+}
+
+.caixa input{
+    float: right;
+    border: 1px solid #ccc;
+    height: 20px;
+    width: 400px;
+}
+
+.banner{
+    height: 500px;
+    background-color: rgb(208, 228, 35);
+    width: 100%;
+}
+
+.banner span{
+    font-size: 50px;
+    color: white;
+}
+
+.menu{
+    height: 1000px;
+    width: 200px;
+    float: left;
+    background-color: violet;
+    opacity: 0;
+    transition: opacity 800ms;
+
+}
