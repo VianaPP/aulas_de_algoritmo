@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação</title>
+</head>
+
+<body>
+
+    <!-- Numero da rodada atual -->
+    <h2 id="h2" style="display: none;">Rodada atual: <u id="num_rodada">0</u></h2><br><br>
+
+    <!-- inicio entrada de dados (inputs e selects) -->
+    Valor da premiação total: <input id="inp_valor_premiacao"><br>
+    Número máximo de rodadas: <input id="inp_num_max_rodadas"><br>
+
+    Resultado time A:
+    <select id="slc_timeA">
+        <option value="3">Vitória</option>
+        <option value="1">Empate</option>
+        <option value="0">Derrota</option>
+    </select> <br>
+
+    Resultado time B:
+    <select id="slc_timeB">
+        <option value="3">Vitória</option>
+        <option value="1">Empate</option>
+        <option value="0">Derrota</option>
+    </select><br>
+
+    Resultado time C:
+    <select id="slc_timeC">
+        <option value="3">Vitória</option>
+        <option value="1">Empate</option>
+        <option value="0">Derrota</option>
+    </select><br>
+    <!-- fim entrada de dados -->
+
+    <!-- inicio botões -->
+    <button onclick="rodada()">Realizar rodada</button>
+    <button onclick="premiacao()">Revelar premiação</button><br>
+    <!-- fim botões -->
+
+    <!-- div da resposta -->
+    <div id="div_resposta"></div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    // variavel global / contador de rodadas
+    var rodada_atual = 0;
+
+    // variaveis globais que guardaram os pontos dos times
+    var pts_time_a = 0;
+    var pts_time_b = 0;
+    var pts_time_c = 0;
+
+    // função do botão Realizar rodada
+    function rodada() {
+
+        // titulo que mostra a rodada atual (h2)
+        h2.style.display = "inline"
+
+        // somando 1 a cada rodada
+        rodada_atual++;
+
+        // guardando os pontos dos times na variavel global e somando os a cada rodada
+        pts_time_a = Number(pts_time_a) + Number(slc_timeA.value);
+        pts_time_b = Number(pts_time_b) + Number(slc_timeB.value);
+        pts_time_c = Number(pts_time_c) + Number(slc_timeC.value);
+
+        // exibindo o numero da rodada dentro da tag "u" presente no h2
+        num_rodada.innerHTML = `${rodada_atual}`;
+
+        // variaveis dos inputs
+        var valor_premiacao = inp_valor_premiacao.value;
+        var max_rodadas = inp_num_max_rodadas.value;
+
+        // validando se a premiação é menor que 1000 E o numero maximo de rodadas é menor que 1 
+        if (valor_premiacao < 1000 && max_rodadas < 1) {
+            // se sim dispara o alerta de invalidez
+            alert("Dados inválidos para a rodada");
+
+        }
+        // se não ele prossegue
+        else {
+
+            // exibindo a resposta na div
+            div_resposta.innerHTML = `
+            Rodada atual: ${rodada_atual}<br>
+            Time A: ${pts_time_a}<br>
+            Time B: ${pts_time_b}<br>
+            Time C: ${pts_time_c}<br>
+            `;
+
+            // analisando se a rodada atual é maior que o numero maximo de rodadas
+            if (rodada_atual > max_rodadas) {
+                // se sim ele executa a função das premiações
+                premiacao();
+            }
+
+        }
+
+    }
+
+
+    // função do botão Revelar premiação
+    function premiacao() {
+
+        // variavel com o valor da premiação total
+        var valor_premiacao = inp_valor_premiacao.value;
+
+        // variavel com o total de pontos 
+        var soma_pts = pts_time_a + pts_time_b + pts_time_c;
+
+        // variaveis com a porcentagem de cada time em relação a soma de todos os pontos 
+        var porcent_premio_time_a = (pts_time_a * 100) / soma_pts;
+        var porcent_premio_time_b = (pts_time_b * 100) / soma_pts;
+        var porcent_premio_time_c = (pts_time_c * 100) / soma_pts;
+
+        // variaveis com o valor que cada time ira receber
+        var premiacao_time_a = (valor_premiacao * porcent_premio_time_a) / 100;
+        var premiacao_time_b = (valor_premiacao * porcent_premio_time_b) / 100;
+        var premiacao_time_c = (valor_premiacao * porcent_premio_time_c) / 100;
+
+        // exibindo a resposta na div
+        div_resposta.innerHTML = `
+            Rodada atual: ${rodada_atual}<br>
+            Time A: ${premiacao_time_a.toFixed(2)}<br>
+            Time B: ${premiacao_time_b.toFixed(2)}<br>
+            Time C: ${premiacao_time_c.toFixed(2)}<br>
+            `;
+
+    }
+
+</script>
