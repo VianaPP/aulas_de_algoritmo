@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+
+<body>
+    <!-- 8. Crie um programa em HTML/JS o qual:
+    a) Pergunta o tempo que deixou o arroz cozinhando
+
+    b) Ao clicar em "Provar arroz", verifica se o cozimento foi perfeito. Um cozimento perfeito é de 5 minutos, exatamente
+
+    c) Caso o cozimento tenha sido perfeito, exiba a frase "Parabéns! Arroz perfeito!" e, abaixo dela, a imagem de um bonito arroz. Caso contrário, exiba a frase "Arroz cru ou cozido demais!" e, abaixo dela, a imagem de um arroz "empapado" ou queimado -->
+
+
+
+    Quanto tempo o arros esta cozinhando? <input id="inp_tempo"><br><br>
+
+
+    <button onclick="provar()">Provar arroz</button><br><br>
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function provar() {
+     
+        inp_tempo.value == 5 ? resultado.innerHTML = `Parabéns! Arroz perfeito! <br> <img src="">` : resultado.innerHTML = `Arroz cru ou cozido demais! <br> <img src="">`;
+    
+    }
+
+
+
+</script>

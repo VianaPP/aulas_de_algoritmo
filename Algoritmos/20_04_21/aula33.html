@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 33</title>
+</head>
+
+<body>
+
+    <h2>Análise de que fase da vida a pessoa esta</h2>
+
+    Qual a sua idade? <input id="inp_idade"><br>
+
+    <button onclick="analisa()">Análisar idade</button><br><br>
+
+    Já passou pela infância: <b id="b_infancia"> </b><br>
+    Já passou pela adolescência: <b id="b_adolescencia"> </b><br>
+    Já é um idoso: <b id="b_idoso"> </b><br><br>
+
+    Total de pontos:<b id="b_pontos"> 0</b>
+
+</body>
+
+</html>
+
+
+<script>
+
+    function analisa() {
+
+        var pontos = 0;
+        var idade = Number(inp_idade.value);
+
+        var infancia = idade > 12;
+        var adolescencia = idade > 18;
+        var idoso = idade >= 65;
+
+        if (infancia) {
+            pontos += 10;
+        }
+        
+        if (adolescencia) {
+            pontos += 20;
+        }
+        
+        if (idoso) {
+            pontos += 50;
+        }
+
+
+        b_infancia.innerHTML = `${infancia}`;
+        b_adolescencia.innerHTML = `${adolescencia}`;
+        b_idoso.innerHTML = `${idoso}`;
+
+        b_pontos.innerHTML = `${pontos}`;
+    }
+
+
+
+</script>

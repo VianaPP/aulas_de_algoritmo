@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+
+<body>
+
+    <!-- Solicite o saldo da conta -->
+    <!-- b) Solicite o valor do débito (ou seja, valor a tirar da conta) -->
+    <!-- c) Ao clicar em "Analisar conta", calcule o novo saldo da conta e exiba a mensagem "o saldo atual da conta corrente é xx.xx". Esta frase deverá estar em negrito e em vermelho somente se o saldo for menor que zero ou em itálico e azul caso o saldo for 0 ou mais. -->
+
+    Qual o saldo da conta? <input id="inp_saldo"><br><br>
+    Qual o valor do débito? <input id="inp_debito"><br><br>
+
+    <button onclick="analisar()">Analisar conta</button><br><br>
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar() {
+        var saldo = Number(inp_saldo.value);
+        var debito = Number(inp_debito.value);
+
+        var saldo_total = saldo - debito;
+
+        saldo_total < 0 ? resultado.innerHTML = `<b style="color:red;"> 
+            o saldo atual da conta corrente é ${saldo_total.toFixed(2)}</b>`
+            : resultado.innerHTML = `<i style="color:blue;"> 
+                o saldo atual da conta corrente é ${saldo_total.toFixed(2)}</i>`; 
+
+
+    }
+
+
+
+</script>

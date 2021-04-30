@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+
+<body>
+    <!-- 
+5. Um grupo de amigos costuma (ou costumava, antes do Covid19) a se reunir a casa de um deles para pedir e comer pizza. Só que eles sempre estabeleciam um valor máximo de investimento por amigo. Ajude eles criando um programa em HTML/JS o qual:
+
+a) Pergunte o valor máximo por amigo
+
+b) Pergunte o valor da pizza
+
+c Pergunte a quantidade de amigos reunidos
+
+d Ao clicar em "Rola a pizza?", calcule e exiba o valor que cada amigo vai pagar na pizza com uma frase na página como esta "Cada amigo vai pagar R$X pela pizza"
+
+d) Somente caso o valor por amigo passe do valor do item a), exiba também a frase "Deu ruim! Pizza muito cara!", caso contrário, deve aparecer a frase "Uhu! Vamos pedir a pizza!".
+ -->
+
+
+
+    Qual o valor máximo por amigo? <input id="inp_valor_amigo"><br><br>
+    Qual o valor da pizza? <input id="inp_valor_pizza"><br><br>
+    Quantos amigos estão reunidos? <input id="inp_qtd_amigos"><br><br>
+
+    <button onclick="rola()">Rola pizza?</button><br><br>
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function rola() {
+        var valor_por_amigo =  Number(inp_valor_pizza.value) / Number(inp_qtd_amigos.value);
+
+        resultado.innerHTML = `Cada amigo vai pagar R$${valor_por_amigo.toFixed(2)} pela pizza<br>`;
+
+       valor_por_amigo <= inp_valor_amigo.value ? resultado.innerHTML += 'Uhu! Vamos pedir a pizza!'
+            : resultado.innerHTML += 'Deu ruim! Pizza muito cara!';
+    }
+
+
+
+</script>
