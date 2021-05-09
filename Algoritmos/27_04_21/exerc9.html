@@ -25,7 +25,7 @@
     Qual a segunda nota do aluno? <input id="inp_nota2"><br><br>
 
 
-    <button onclick="provar()">Verificar resultado</button><br><br>
+    <button onclick="verificar()">Verificar resultado</button><br><br>
 
     <div id="resultado"></div>
 
@@ -35,15 +35,16 @@
 
 <script>
 
-    function provar() {
+    function verificar() {
 
-        var media = (Number(inp_nota1.value) + Number(inp_nota1.value)) / 2;
+        var media = (Number(inp_nota1.value) + Number(inp_nota2.value)) / 2;
 
         media < 6 ? resultado.innerHTML = `Infelizmente reprovado` 
-            : media >= 6 && media <= 7.5 ? resultado.innerHTML = `Aprovado - Automação, Seg ou Testes` 
+            : media <= 7.5 ? resultado.innerHTML = `Aprovado - Automação, Seg ou Testes` 
                 : resultado.innerHTML = `Aprovado - Dev`;
     }
 
+    // media >= 6 &&
 
 
 </script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+
+    Qual o nome da pessoa que você mais ama nessa vida? <input type="text" id="inp_pessoa"><br><br>
+    Quanto você amava essa pessoa? <input type="text" id="inp_vezes" placeholder="Numeros Inteiros"><br><br>
+
+    <button onclick="expressar()">Expressar amor</button><br><br>
+
+    <span id="resultado"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function expressar() {
+
+        var nome = inp_pessoa.value;
+        var qtd_amor = inp_vezes.value;
+        var contador = 0;
+        resultado.innerHTML = "";
+
+        while (contador < qtd_amor) {
+            contador++;
+            resultado.innerHTML += `<b>${nome}</b>, eu te amo! <i>Sempre lembre disso! </i> <br>`;
+        }
+
+
+    }
+
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+
+<body>
+    <!-- 10. Crie um programa em HTML/JS que analisa o desempenho de um atacante de futebol, o qual:
+
+    a) Solicita a quantas partidas um atacante jogou
+
+    b) Solicita quantos gols ele marcou
+
+    c) Ao clicar em "Estudar atacante", calcule sua média de gols/partida
+
+    d) Exiba, abaixo do botão:
+
+    A frase "Melhor mudar de posição" e a foto de um jogador de futebol bem ruim, caso a média for menor que 0.2
+
+    A frase "Atacante mediano" e a foto de um jogador de futebol comum, caso a média for entre 0.2 e 0.6
+
+    A frase "Atacante de futuro" e a foto de um bom jogador de futebol, caso a média for acima de 0.6
+
+    e) Abaixo de tudo, exibir a frase "Sua média de gols/partida é de X" (onde X deve estar sempre com 1 casa decimal) -->
+
+
+    Quantas partidas o atacante jogou? <input id="inp_partidas"><br><br>
+    Quantos gols ele marcou? <input id="inp_gols"><br><br>
+
+
+    <button onclick="estudar()">Estudar atacante</button><br><br>
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function estudar() {
+
+        var media = (Number(inp_gols.value) / Number(inp_partidas.value));
+
+        media < 0.2 ? resultado.innerHTML = `Melhor mudar de posição <br>
+            <img src="http://cdn.espn.com.br/thumb/622_1e228d8a-6dd6-39e6-bdd7-0bc3f9326b94.jpg"><br>`
+            : media >= 0.2 && media <= 0.6 ? resultado.innerHTML = `Atacante mediano <br>
+                <img src="https://sportbuzz.uol.com.br/media/_versions/gettyimages-879035846_widelg.jpg"> <br>`
+                : resultado.innerHTML = `Atacante de futuro <br> 
+                    <img src="https://images.daznservices.com/di/library/GOAL/89/8b/neymar-lorient-psg-ligue-1-31012021_mjmcz7hfjbwozzai15yah1wr.jpg?t=1543864247&quality=100"> <br>`;
+
+        resultado.innerHTML += `Sua média de gols/partida é de ${media.toFixed(1)}`;
+    }
+
+
+
+</script>

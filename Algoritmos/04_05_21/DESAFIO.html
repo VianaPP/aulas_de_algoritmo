@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+
+    <input type="text" id="inp_loja" placeholder="loja"><br>
+    <input type="text" id="inp_conta" placeholder="Conta"><br>
+    <input type="text" id="inp_digito" placeholder="Dígito"><br><br>
+
+    <button id="botao_confere" onclick="conferir()">Conferir</button>
+
+    <div id="div_resultado"></div><br><br>
+
+
+    <input type="password" style="display: none;" id="inp_senha" placeholder="Senha"><br>
+
+    <button style="display: none; float: left;" id="botao_limpar" onclick="limpar()">Limpar</button>
+    <button style="display: none;" id="botao_entrar" onclick="entrar()">Entrar</button><br>
+
+    <div id="resposta_senha"></div>
+
+    <select onchange="produto()" id="slc_produto" style="display: none;">
+        <option value="0">Selecione um Produto</option>
+        <option value="cadeira_de_praia">cadeira de praia</option>
+        <option value="cadeira_de_jardim">cadeira de jardim</option>
+    </select><br>
+
+    <img src="" id="img_produto" style="height: 150px;"><br>
+
+    <select onchange="material()" id="slc_material" style="display: none;">
+        <option value="0">Selecione o Material</option>
+        <option id="material_1" value="aluminio">alumínio</option>
+        <option id="material_2" value="plastico">plático</option>
+        <option id="material_3" value="ferro">ferro</option>
+    </select><br>
+
+    <input type="text" style="display: none;" id="inp_qtd_cadeiras" placeholder="Quantidade de cadeiras"><br>
+    <button id="botao_calcular" style="display: none;" onclick="calcular()">Calcular</button><br>
+
+    <div id="orcamento"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var digito = 0;
+
+    function conferir() {
+
+        var loja = inp_loja.value;
+        var conta = inp_conta.value;
+        var divisao = conta % loja;
+
+
+        if (loja >= 0 && loja > 10) {
+
+            alert('Loja inválida')
+
+        } else if (conta <= 0) {
+
+            alert('conta inválida')
+
+        } else if (divisao < 3) {
+
+            digito = 1;
+
+            if (digito == inp_digito.value) {
+
+                verificado();
+
+            } else {
+
+                alert("Digito Inválido");
+
+            }
+
+        } else if (divisao >= 3 && divisao <= 6) {
+
+            digito = 2;
+
+            if (digito == inp_digito.value) {
+
+                verificado();
+
+            } else {
+
+                alert("Digito Inválido");
+
+            }
+
+        } else {
+
+            digito = 3;
+
+            if (digito == inp_digito.value) {
+
+                verificado();
+
+            } else {
+
+                alert("Digito Inválido");
+
+            }
+        }
+
+
+    }
+
+
+    function verificado() {
+
+        botao_confere.style.display = "none";
+        inp_conta.style.display = "none";
+        inp_loja.style.display = "none";
+        inp_digito.style.display = "none";
+
+        login()
+    }
+
+
+    function login() {
+
+        div_resultado.style.display = "block";
+        inp_senha.style.display = "block";
+        botao_limpar.style.display = "block";
+        botao_entrar.style.display = "block";
+        resposta_senha.display = "block"
+
+        div_resultado.innerHTML = `Olá cliente XXXXXX entre com a sua senha para a Conta ${inp_conta.value}-${digito} da Loja ${inp_loja.value}`;
+    }
+
+    var tentativas = 0;
+
+    function limpar() {
+        tentativas = 0;
+        inp_senha.value = "";
+    }
+
+
+
+    function entrar() {
+
+        tentativas++
+
+        var senha = "";
+
+        digito == 1 ? senha = "recife"
+            : digito == 2 ? senha = "manaus"
+                : senha = "fortaleza";
+
+        if (inp_senha.value == senha) {
+
+            tentativas = 0;
+            logado();
+
+        } else {
+
+            resposta_senha.innerHTML += `senha invalida<br>`;
+
+        }
+
+        if (tentativas > 3) {
+
+            tentativas = 0;
+            alert("Você excedeu o número de tentativas, sua conta está bloqueada, PROCURE O SUPORTE");
+
+            resposta_senha.style.display = "none";
+            div_resultado.style.display = "none"
+            inp_senha.style.display = "none";
+            botao_limpar.style.display = "none";
+            botao_entrar.style.display = "none";
+
+            bloqueio();
+        }
+
+
+    }
+
+    function bloqueio() {
+
+        botao_confere.style.display = "inline";
+        inp_conta.style.display = "inline";
+        inp_loja.style.display = "inline";
+        inp_digito.style.display = "inline";
+
+    }
+
+    function logado() {
+
+        resposta_senha.style.display = "none";
+        div_resultado.style.display = "none"
+        inp_senha.style.display = "none";
+        botao_limpar.style.display = "none";
+        botao_entrar.style.display = "none";
+
+        slc_produto.style.display = "block"
+    }
+
+    function produto() {
+
+        var produto = slc_produto.value;
+
+        produto == "cadeira_de_praia" ? img_produto.src = "https://cdn.leroymerlin.com.br/products/cadeira_de_praia_reclinavel_sun_glow_aluminio_verde_limao_1566977209_397b_300x300.jpeg"
+            : img_produto.src = "https://i.pinimg.com/originals/49/a8/54/49a854f0eb2887ffaf91635d85748033.png";
+
+
+        slc_material.style.display = "block";
+        inp_qtd_cadeiras.style.display = "block";
+        botao_calcular.style.display = "block";
+
+    }
+
+    function calcular() {
+
+        if (inp_qtd_cadeiras.value <= 0) {
+
+            alert("Digite a Quantidade de cadeiras que deseja comprar");
+
+        } else {
+
+            var contador = 0;
+
+            var tipo_cadeira = slc_produto.value;
+            var tipo_material = slc_material.value;
+
+            var desconto = 0;
+
+            while (contador < 1) {
+                
+                contador++;
+
+                inp_qtd_cadeiras.value > 50 ? desconto = 0.03 : desconto = 0;
+
+                material();
+
+                var total_compra = tipo_material * Number(inp_qtd_cadeiras.value) - desconto;
+
+            }
+
+            var desconto_extra = 0;
+
+            tipo_material == "plastico" || tipo_material == "ferro" ? desconto_extra = 5
+                : desconto_extra = 3.5;
+
+            orcamento.innerHTML = `O orçamento para a compra de ${inp_qtd_cadeiras.value} ${tipo_cadeira} de ${tipo_material} é R$ ${total_compra} <br>
+            
+            Para pagamento a vista o desconto é de ${desconto_extra}% e seu pedido ficará por R$${total_compra - (desconto_extra / 100)}`;
+
+
+        }
+
+    }
+
+    function material() {
+
+        if (slc_produto.value == "cadeira_de_jardim") {
+
+            material_1.value = 70;
+            material_2.value = 35;
+            material_3.value = 50;
+
+
+        } else {
+
+            material_1.value = 75;
+            material_2.value = 50;
+            material_3.value = 80;
+
+        }
+
+    }
+
+    //não consegui fazer a 10 e a 11 100%
+
+</script>

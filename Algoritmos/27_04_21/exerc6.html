@@ -21,21 +21,23 @@
 
 
     Qual a frequência do aluno? <input id="inp_frequencia"><br><br>
-   
 
-    <button onclick="rola()">Analisar frequência</button><br><br>
+
+    <button onclick="frequencia()">Analisar frequência</button><br><br>
 
     <div id="resultado"></div>
 
 </body>
+
 </html>
 
 <script>
 
-    function rola() {
+    function frequencia() {
         var frequencia = inp_frequencia.value;
 
-        frequencia < 75 ? resultado.innerHTML = `<img src="https://image.freepik.com/fotos-gratis/turista-com-o-polegar-para-cima_1368-7035.jpg" >` : resultado.innerHTML = `<img src="https://static.quizur.com/i/b/5747891e74cc93.67717206pessoas-inteligentes.jpg">`;
+        frequencia < 75 ? resultado.innerHTML = `<img src="https://image.freepik.com/fotos-gratis/turista-com-o-polegar-para-cima_1368-7035.jpg" >`
+            : resultado.innerHTML = `<img src="https://static.quizur.com/i/b/5747891e74cc93.67717206pessoas-inteligentes.jpg">`;
     }
 
 
