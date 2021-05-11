@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+
+<body>
+
+    Qual o valor do deposito?<input type="text" id="inp_deposito"><br><br>
+    Quantos meses ficara depositado?<input type="text" id="inp_meses"><br><br>
+
+    <button onclick="ver()">Ver investimento</button><br><br>
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function ver() {
+
+        div_resul.innerHTML = "";
+        var deposito = Number(inp_deposito.value);
+
+        for (var mes = 1; mes <= Number(inp_meses.value); mes++) {
+            deposito = deposito * 1.005;
+
+            div_resul.innerHTML += `<br>${mes}°mês: ${deposito.toFixed(2)}`;
+
+        }
+    }
+
+</script>

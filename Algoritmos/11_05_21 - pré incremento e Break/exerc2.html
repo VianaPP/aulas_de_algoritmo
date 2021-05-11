@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+
+<body>
+
+    Qual o seu numero da sorte? <input type="text" id="inp_num_sorte"><br>
+
+    <button onclick="testar()">Testar minha sorte</button> <br><br>
+
+    <div id="div_result"></div>
+
+
+</body>
+
+</html>
+
+<script>
+
+
+    function testar() {
+
+        var sorteio = 0;
+        var num = inp_num_sorte.value;
+        var contador = 1;
+        div_result.innerHTML = "";
+
+        num >= 0 && num <= 100 ? ""
+            : alert("Digite apenas numeros entre 0 e 100");
+
+        while (contador < 31) {
+
+            sorteio = parseInt(Math.random() * 101);
+
+            div_result.innerHTML += `<br>${contador}°:<b>${sorteio}</b>`;
+
+            if (sorteio == num) {
+
+                div_result.innerHTML += `<br>Muito bem, você é uma pessoa de sorte! Seu número saiu no ${contador}°`;
+                break;
+
+            }
+            if (contador == 30) {
+
+                div_result.innerHTML += `<br>É, você não tem muita sorte em sorteios, pelo visto`
+                break;
+
+            }
+
+            contador++;
+
+        }
+    }
+
+</script>

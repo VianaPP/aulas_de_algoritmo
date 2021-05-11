@@ -10,12 +10,13 @@
 
 <body>
 
-    De quantos em quantos dias você faz musculação? <input type="text" id="inp_rotina" placeholder="(só 1 número, ok?)"><br><br>
+    De quantos em quantos dias você faz musculação? <input type="text" id="inp_rotina"
+        placeholder="(só 1 número, ok?)"><br><br>
 
     <button onclick="exibir()">Exibir rotina mensal</button><br><br>
 
     <div id="resposta"></div>
-    
+
 </body>
 
 </html>
@@ -24,16 +25,19 @@
 
     function exibir() {
 
-        var contador = 1;
+        var contador = 0;
         var treinos = Number(inp_rotina.value);
+        resposta.innerHTML = "";
 
-        while (contador < 31) {
+        while (contador < 30) {
+
+            contador % treinos == 0 ? resposta.innerHTML += `Dia ${++contador} <b>- Musculação</b> <br>`
+                : resposta.innerHTML += `Dia ${++contador} - Come, dormi etc <br>`;
+
             
-            resposta.innerHTML += `Dia ${contador} - <br>`;
-            contador++
         }
 
-        
+
     }
 
 </script>
