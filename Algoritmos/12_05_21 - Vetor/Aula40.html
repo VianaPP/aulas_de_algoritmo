@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 40</title>
+</head>
+<body>
+    
+    Nome da fruta <input type="text"  id="inp_fruta">
+    <button onclick="cadastrar()">Cadastrar</button><br><br>
+
+    Numero da pesquisa <input type="text"  id="inp_pesquisa">
+    <button onclick="pesquisar()">Cadastrar</button><br>
+
+    <div id="resultado"></div>
+
+
+</body>
+</html>
+
+<script>
+
+    var frutas = [];
+
+    function cadastrar() {
+        frutas.push(inp_fruta.value);        
+    }
+
+    function pesquisar() {
+
+        var pesquisa = Number(inp_pesquisa.value);
+        var pesquisa_true = pesquisa - 1;
+        var fruta_encontrada = frutas[pesquisa_true];
+
+        pesquisa <= frutas.length ? resultado.innerHTML = `A ${pesquisa}° fruta é: ${fruta_encontrada}`
+            : resultado.innerHTML = `A ${pesquisa}° fruta não foi cadastrada!`;
+        
+        
+    }
+
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+
+    <select id="slc_pref">
+        <option value="0">Qual você prefere?</option>
+        <option value="Marvel">Marvel</option>
+        <option value="DC">DC</option>
+    </select><br>
+
+    <button onclick="ver()">Ver programação semanal na TV</button><br>
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function ver() {
+
+        resultado.innerHTML = "";
+
+        for (var contador = 0; contador < 5; contador++) {
+
+            var sorteio = parseInt(Math.random() * 2);
+
+            var filme = sorteio == 1 ? "Marvel"
+                : "DC";
+
+            if (filme == slc_pref.value) {
+
+                resultado.innerHTML = `Você verá um filme que gosta no ${contador + 1}º dia`;
+                break;
+
+            } else {
+
+                resultado.innerHTML = `É, ou lê um livro ou assiste um filme que não gosta mesmo`
+
+            }
+
+
+        }
+
+    }
+
+</script>

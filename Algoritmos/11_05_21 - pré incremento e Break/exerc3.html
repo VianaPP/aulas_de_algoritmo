@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+
+    <button onclick="ver()">Ver minha sorte</button><br>
+
+    <div id="div_imagens"></div><br>
+    <div id="resposta"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var coracao = 0;
+    var cartas = 0;
+
+    function ver() {
+
+        resposta.innerHTML = "";
+        div_imagens.innerHTML = "";
+        var contador = 0
+
+        while (contador < 22) {
+
+            var sorteio = parseInt(Math.random() * 2);
+
+            if (sorteio == 1) {
+
+                coracao++;
+                div_imagens.innerHTML += `<img src="https://i.pinimg.com/originals/27/42/95/274295614b1f1971b08ab25420222b6a.png" style="height:30px; float:left;">`;
+
+
+            } else {
+
+                cartas++;
+                div_imagens.innerHTML += `<img src="https://e7.pngegg.com/pngimages/608/286/png-clipart-playing-card-ace-of-hearts-suit-cards-love-rectangle.png" style="height:30px; float:left;">`;
+
+            }
+
+            if (coracao > cartas) {
+
+                resposta.innerHTML = `<br><br>Você tem mais sorte no amor`;
+
+            } else {
+
+                resposta.innerHTML = `<br><br>Você tem mais sorte no jogo`;
+
+            }
+
+            if (coracao >= 11 || cartas >= 11) {
+
+                coracao = 0;
+                cartas = 0;
+                break;
+
+            }
+
+            contador++;
+
+        }
+
+
+    }
+
+</script>
