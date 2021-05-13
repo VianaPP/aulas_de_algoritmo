@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11</title>
+</head>
+
+<body>
+
+    Quantos Elefantes? <input type="text" id="inp_elefantes"> <br><br>
+
+    <button onclick="elefante()">Atazanar a médium</button><br><br>
+
+    <div id="resposta"></div>
+</body>
+
+</html>
+
+<script>
+
+    function elefante() {
+
+        var contador = 1;
+        var frase = inp_elefantes.value;
+        resposta.innerHTML = "";
+
+        while (contador < frase) {
+
+            contador++;
+
+          resposta.innerHTML += `1 elefante incomoda muita gente!<br>
+          ${contador} elefantes, incomodam, incomodam, muito mais!<br>`;
+
+        }
+
+    }
+
+</script>

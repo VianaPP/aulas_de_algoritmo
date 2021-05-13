@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+
+    Quantos sorteios deseja? <input type="text" id="inp_qtd_sorteio">
+    <button onclick="sortear()">Sortear a sorte</button><br><br>
+
+    <div id="resultado"></div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    function sortear() {
+
+        resultado.innerHTML = "";
+
+        for (var contador = 0; contador < inp_qtd_sorteio.value; contador++) {
+
+            var num_sorteado = parseInt(Math.random() * 10001);
+
+            num_sorteado >= 0 && num_sorteado <= 1000 ? resultado.innerHTML += `<br><br>${num_sorteado}<br><img src="https://media.tenor.com/images/27352cae86b9799a6bd2e099f56172a7/tenor.gif" style=" height: 150px;"><br><br>`
+                : num_sorteado > 1000 && num_sorteado <= 5000 ? resultado.innerHTML += `<br><br>${num_sorteado}<br><img src="https://thumbs.gfycat.com/FastNaturalLcont-size_restricted.gif" style=" height: 150px;"><br><br>`
+                    : resultado.innerHTML += `<br><br>${num_sorteado}<br><img src="https://acegif.com/wp-content/uploads/funny-money-3.gif" style=" height: 150px;">`;
+
+        }
+
+    }
+
+</script>

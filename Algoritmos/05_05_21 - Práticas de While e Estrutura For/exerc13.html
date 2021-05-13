@@ -13,7 +13,7 @@
     Qual o número do qual deseja ter o fatorial?<input type="text" id="inp_num"><br><br>
 
     <button onclick="fato()">Calcular fatorial</button><br><br>
-    <div id="div_resul"></div>
+    <b><div id="div_resul"></div></b>
 
 </body>
 
@@ -27,13 +27,18 @@
         var fator = Number(inp_num.value);
         var resultado = fator;
 
-        for (var contador = fator; contador > 0; contador--) {
+        div_resul.innerHTML = `Fatorial de ${fator}: `;
+        
+        for (var contador = fator; contador > 1; contador--) {
             
-            div_resul.innerHTML = `Fatorial de ${inp_num.value}: ${contador}x = ${resultado}`;
-
-            resultado = resultado * contador;
-
+            div_resul.innerHTML += `${contador}x`;
+            
+            resultado = resultado * (contador-1);
+            
         }
+
+        div_resul.innerHTML += `1 = ${resultado}`;        
+        
     }
 
 </script>

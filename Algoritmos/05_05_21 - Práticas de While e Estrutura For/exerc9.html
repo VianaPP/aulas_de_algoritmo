@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+
+<body>
+
+    De quantos em quantos dias você faz musculação? <input type="text" id="inp_rotina"
+        placeholder="(só 1 número, ok?)"><br><br>
+
+    <button onclick="exibir()">Exibir rotina mensal</button><br><br>
+
+    <div id="resposta"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function exibir() {
+
+        var treinos = Number(inp_rotina.value);
+        resposta.innerHTML = "";
+
+        for(var contador = 0; contador < 30; contador++) {
+
+            contador % treinos == 0 ? resposta.innerHTML += `Dia ${contador+1} <b>- Musculação</b> <br>`
+                : resposta.innerHTML += `Dia ${contador+1} - Come, dormi etc <br>`;
+
+            
+        }
+
+
+    }
+
+</script>
