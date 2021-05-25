@@ -27,16 +27,16 @@
     function cadastrar() {
 
         alunos.push(inp_alunos.value);
-        
-        var nome_alunos = alunos[alunos.length - 1];
+        result.innerHTML = "";
 
-       
-        result.innerHTML += `${nome_alunos}<br>`;
-        
-    
-        
+        for (var contador = alunos.length-1; contador >= 0; contador--) {
+
+            result.innerHTML += `<br>${alunos[contador]}`;
+
+        } 
+
     }
 
- 
+
 
 </script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<style>
+    button {
+        cursor: pointer;
+        border-style: none;
+        background-color: chartreuse;
+        border: 1px solid gray;
+        height: 30px;
+        width: 100px;
+    }
+</style>
+
+<body>
+
+    Nome aluno: <input type="text" id="inp_nome">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="pesquisar()">Pesquisar</button><br><br>
+
+    <div id="resposta"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var nome_aluno = [];
+
+
+    function cadastrar() {
+
+        nome_aluno.push(inp_nome.value);
+
+        resposta.innerHTML += `<br> ${inp_nome.value}`
+
+    }
+
+    function pesquisar() {
+
+        var qtd_nome = 0;
+
+        for (var contador = 0; contador < nome_aluno.length; contador++) {
+
+            nome_aluno[contador] == inp_nome.value ? qtd_nome++ : "";
+
+        }
+
+        qtd_nome == 0 ? alert(`O aluno ${inp_nome.value} não esta na lista`) 
+            : alert(`O aluno ${inp_nome.value} aparece ${qtd_nome} vezes na lista`);
+    
+    }
+
+
+</script>

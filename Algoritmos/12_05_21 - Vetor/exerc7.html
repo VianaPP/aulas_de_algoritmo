@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+
+    Digite a nota do aluno <input type="text" id="inp_nota">
+    <button onclick="cadastrar()">Cadastrar</button><br>
+    A pardir de qual nota deseja analisar <input type="text" id="inp_analisa">
+    <button onclick="rever()">Rever as Notas</button><br><br>
+
+    <div id="result"></div>
+    
+</body>
+</html>
+
+<script>
+
+    var notas =  [];
+
+    function cadastrar() {
+        notas.push(Number(inp_nota.value));
+    }
+
+    function rever() {
+
+        result.innerHTML = "";
+        var maior = 0;
+        var soma = 0;
+        var media = 0;
+        
+        for (var contador = 0; contador < notas.length; contador++) {
+            
+            if (notas[contador] >= inp_analisa.value) {
+                result.innerHTML += `${notas[contador]}<br>`;
+            }
+            if (notas[contador] > inp_analisa.value) {
+                maior++;
+            }
+            
+            soma += notas[contador];
+        }
+        
+        media = soma / --contador;
+        
+        
+        result.innerHTML += `Foram cadastras ${maior} notas maiores que ${inp_analisa.value} e a média dessas notas é ${media.toFixed(1)}`
+    }
+
+</script>

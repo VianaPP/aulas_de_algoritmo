@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+
+<body>
+
+    Digite o Nome do seu Filho <input type="text" id="inp_filho">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="att()">Atualizar Familia</button><br><br>
+
+    <div id="resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var filhos = [];
+
+    function cadastrar() {
+
+        if (inp_filho.value != filhos[filhos.indexOf(inp_filho.value)]) {
+
+            filhos.push(inp_filho.value);
+
+        } else {
+
+            alert('Não pode mais de 1 filho com o mesmo nome!');
+        }
+
+    }
+
+    function att() {
+
+        resul.HTML = "";
+
+        resul.innerHTML = `Você tem ${filhos.length} filhos<br><br>`;
+
+        var esco_par =  filhos.length * 3000;
+        var esco_pub = filhos.length * 1500;
+
+        resul.innerHTML += `Seu custo mensal será aproximadamente R$${esco_par.toFixed(2)} se colocar eles em escola particular ou R$${esco_pub.toFixed(2)} se eles estudarem em escola pública <br><br>`;
+
+
+        for (var contador = 0; contador < filhos.length; contador++) {
+            if (contador % 2 == 0) {
+
+                resul.innerHTML += `${++contador}°filho(a) - ${(filhos[--contador]).toUpperCase()}<br>`;
+                
+            } else {
+                resul.innerHTML += `${++contador}°filho(a) - ${(filhos[--contador]).toLowerCase()}<br>`;
+            }
+    
+        }
+        
+    }
+
+</script>

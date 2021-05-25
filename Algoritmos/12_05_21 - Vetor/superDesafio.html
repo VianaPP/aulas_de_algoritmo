@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Desafio</title>
+</head>
+<style>
+    input{
+        width: 50px;
+    }
+
+    span{
+        background-color: white;
+        width: 55px;
+        display: inline-block;
+    }
+
+    #moana{
+        display: none;
+    }
+    
+    #frozzen{
+        display: none;
+    }
+    
+    #karate_kid{
+        display: none;
+    }
+    
+    #kung_fu_panda{
+        display: none;
+    }
+    
+    #raya{
+        display: none;
+    }
+    
+    #f_10000ac{
+        display: none;
+    }
+    
+    #liga_da_justica{
+        display: none;
+    }
+    
+    #vingadores{
+        display: none;
+    }
+    
+    #bright{
+        display: none;
+    }
+    
+    #shaft{
+        display: none;
+    }
+
+</style>
+
+<body>
+
+    <div id="moana">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <p>Dica: Uma garota com sede de aventura, parte para uma aventura super perigosa em mar aberto, com objetivo de salvar a todos da maldição.</p>
+    </div>
+
+    <div id="frozzen">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <p>Dica: Duas irmãs inseparavéis enfrentam um crise familiar, após a irmã mais velha que possui poderes magicos, depois de acidentalmente atingir sua irmã em uma brincadeira, decidiu esconder seus poderes daquele dia em diante.</p>
+    </div>
+
+    <div id="karate_kid">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <span></span>
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <p>Dica: Um jovem rapaz sofria na mão dos garotos da academia Cobra kay, então o zelador do seu comdomino decide treina-lo para ganhar o torneio regional de karate.</p>
+    </div>
+
+    <div id="kung_fu_panda">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <span></span>
+        <input type="text" id="">
+        <input type="text" id="">
+        <span></span>
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <p>Dica: Ser o Dragão guerreiro e consquistar o direito do pergaminho do Dragão é o sonho de todo amante de kung fu. atraves de um acidente esse jovem é nomeado como dragrão guerreiro e agora tem o dever de proteger sua aldeia.</p>
+    </div>
+
+    <div id="raya">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+    </div>
+
+    <div id="f_10000ac">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <span></span>
+        <input type="text" id="">
+        <input type="text" id="">
+    </div>
+
+    <div id="liga_da_justica">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <span></span>
+        <input type="text" id="">
+        <input type="text" id="">
+        <span></span>
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+    </div>
+
+    <div id="vingadores">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+    </div>
+
+    <div id="bright">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+    </div>
+
+    <div id="shaft">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+        <input type="text" id="">
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    var nome = ["Moana", "Frozzen", "Karate kid", "Kung fu Panda", "Raya", "10000 ac", "Liga da justiça", "Vingadores", "Bright", "Shaft"];
+
+    var sorteio = parseInt(Math.random() * 10)
+
+    var nome_sorteado = nome[sorteio];
+
+    console.log(nome_sorteado);
+
+    if (sorteio == 0) {
+        
+        moana.style.display = "block";
+        frozzen.style.display = "none";
+        karate_kid.style.display = "none";
+        kung_fu_panda.style.display = "none";
+        raya.style.display = "none";
+        f_10000ac.style.display = "none";
+        liga_da_justica.style.display = "none";
+        vingadores.style.display = "none";
+        bright.style.display = "none";
+        shaft.style.display = "none";
+
+    } else if (sorteio == 1) {
+        
+        frozzen.style.display = "block";
+        moana.style.display = "none";
+        karate_kid.style.display = "none";
+        kung_fu_panda.style.display = "none";
+        raya.style.display = "none";
+        f_10000ac.style.display = "none";
+        liga_da_justica.style.display = "none";
+        vingadores.style.display = "none";
+        bright.style.display = "none";
+        shaft.style.display = "none";
+
+
+    } else if (sorteio == 2) {
+        
+        karate_kid.style.display = "block";
+        moana.style.display = "none";
+        frozzen.style.display = "none";
+        kung_fu_panda.style.display = "none";
+        raya.style.display = "none";
+        f_10000ac.style.display = "none";
+        liga_da_justica.style.display = "none";
+        vingadores.style.display = "none";
+        bright.style.display = "none";
+        shaft.style.display = "none";
+
+
+    } else if (sorteio == 3) {
+        
+        kung_fu_panda.style.display = "block";
+        moana.style.display = "none";
+        frozzen.style.display = "none";
+        karate_kid.style.display = "none";
+        raya.style.display = "none";
+        f_10000ac.style.display = "none";
+        liga_da_justica.style.display = "none";
+        vingadores.style.display = "none";
+        bright.style.display = "none";
+        shaft.style.display = "none";
+
+
+    } else if (sorteio == 4) {
+
+        raya.style.display = "block";
+        moana.style.display = "none";
+        frozzen.style.display = "none";
+        karate_kid.style.display = "none";
+        kung_fu_panda.style.display = "none";
+        f_10000ac.style.display = "none";
+        liga_da_justica.style.display = "none";
+        vingadores.style.display = "none";
+        bright.style.display = "none";
+        shaft.style.display = "none";
+        
+    } else if (sorteio == 5) {
+
+        f_10000ac.style.display = "block";
+        moana.style.display = "none";
+        frozzen.style.display = "none";
+        karate_kid.style.display = "none";
+        kung_fu_panda.style.display = "none";
+        raya.style.display = "none";
+        liga_da_justica.style.display = "none";
+        vingadores.style.display = "none";
+        bright.style.display = "none";
+        shaft.style.display = "none";
+        
+    } else if (sorteio == 6) {
+
+        liga_da_justica.style.display = "block";
+        moana.style.display = "none";
+        frozzen.style.display = "none";
+        karate_kid.style.display = "none";
+        kung_fu_panda.style.display = "none";
+        raya.style.display = "none";
+        f_10000ac.style.display = "none";
+        vingadores.style.display = "none";
+        bright.style.display = "none";
+        shaft.style.display = "none";
+        
+    } else if (sorteio == 7) {
+        
+        vingadores.style.display = "block";
+        moana.style.display = "none";
+        frozzen.style.display = "none";
+        karate_kid.style.display = "none";
+        kung_fu_panda.style.display = "none";
+        raya.style.display = "none";
+        f_10000ac.style.display = "none";
+        liga_da_justica.style.display = "none";
+        bright.style.display = "none";
+        shaft.style.display = "none";
+
+    } else if (sorteio == 8) {
+
+        bright.style.display = "block";
+        moana.style.display = "none";
+        frozzen.style.display = "none";
+        karate_kid.style.display = "none";
+        kung_fu_panda.style.display = "none";
+        raya.style.display = "none";
+        f_10000ac.style.display = "none";
+        liga_da_justica.style.display = "none";
+        vingadores.style.display = "none";
+        shaft.style.display = "none";
+        
+    } else {
+
+        shaft.style.display = "block";
+        moana.style.display = "none";
+        frozzen.style.display = "none";
+        karate_kid.style.display = "none";
+        kung_fu_panda.style.display = "none";
+        raya.style.display = "none";
+        f_10000ac.style.display = "none";
+        liga_da_justica.style.display = "none";
+        vingadores.style.display = "none";
+        bright.style.display = "none";
+        
+    }
+
+</script>
