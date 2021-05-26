@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+
+<body>
+
+    Nome do Produto <input type="text" id="inp_nome_produto">
+    Preço de compra <input type="text" id="inp_preco">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatorio()">Relatório de estoque</button><br><br>
+
+    <div id="resultado"></div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    var produtos = [];
+    var precos = [];
+
+    function cadastrar() {
+        produtos.push(inp_nome_produto.value);
+        precos.push(Number(inp_preco.value));
+    }
+
+    function relatorio() {
+
+        var min = precos[0];
+        var max = precos[0];
+        var soma = 0;
+        var media = 0;
+
+        for (var index = 0; index < produtos.length; index++) {
+
+            resultado.innerHTML += ` 
+            Total de produtos: ${produtos.length}<br>
+    
+            Produto ${index + 1}: ${produtos[index]}<br>
+    
+            Preço de compra: R$${precos[index]}. Vender por R$${(precos[index] * 1.25).toFixed(2)}<br><br>`;
+
+            if (precos[index] > max) {
+                max = produtos[index]
+
+            } if (precos[index] < min) {
+                min = produtos[index]
+
+            }
+
+            soma += precos[index];
+            
+        }
+
+        media = soma / index;
+
+        resultado.innerHTML += `
+        produto mais caro: ${max}<br>
+
+        produto mais barato: ${min}<br>
+
+        soma dos preços de compra: ${soma}<br>
+
+        A média de preço de venda: ${media.toFixed(2)} `
+
+
+    }
+
+
+</script>
