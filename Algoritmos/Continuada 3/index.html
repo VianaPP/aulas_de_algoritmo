@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuada 3</title>
+</head>
+
+<style>
+    img {
+        width: 100px;
+    }
+
+    input {
+        width: 50px;
+        margin-right: 20px;
+        border: solid 1px black;
+    }
+
+    #btn_intervalo {
+        border: 1px solid gray;
+        padding: 5px 10px;
+        color: rgb(53, 53, 53);
+    }
+
+    #img_jogador1 {
+        float: left;
+    }
+
+    #div_intervalo {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <h1>Pedra - Papel - Tesoura</h1>
+
+    <button onclick="jokepo()">Jo Ken Po!</button><br><br>
+
+    <img id="img_jogador1" src="">
+    <img id="img_jogador2" src=""><br><br>
+
+    <div id="div_result"></div><br><br>
+
+    <div id="div_intervalo">
+        de <input type="text" id="inp_de">
+        até <input type="text" id="inp_ate">
+
+        <button onclick="intervalo()" id="btn_intervalo">Intervalo</button><br><br>
+    </div>
+
+    <div id="div_listagem"></div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    var imagens = ["jkp_papel.png", "jkp_tesoura.png", "jkp_pedra.jpg"];
+    var figuras_sorteadas1 = [];
+    var figuras_sorteadas2 = [];
+    var numero_das_rodadas = [];
+    var jogador_vencedor = [];
+    var rodada = 0
+
+    function jokepo() {
+
+        div_intervalo.style.display = "block";
+
+        rodada++;
+        numero_das_rodadas.push(rodada);
+
+        //Gerando numeros aleatorios de 0 a 2 para utilizar no sorteio
+        var sorteio1 = parseInt(Math.random() * 3);
+        var sorteio2 = parseInt(Math.random() * 3);
+
+        var vencedor = "";
+        var figura_sorteio1 = "";
+        var figura_sorteio2 = "";
+
+        //Colocando o src da imagem 1 de acordo com o resultado do sorteio1
+        if (sorteio1 == 0) {
+
+            img_jogador1.src = imagens[0];
+
+            figura_sorteio1 = "Papel";
+            figuras_sorteadas1.push(figura_sorteio1);
+
+        } else if (sorteio1 == 1) {
+
+            img_jogador1.src = imagens[1];
+
+            figura_sorteio1 = "Tesoura";
+            figuras_sorteadas1.push(figura_sorteio1);
+
+        } else {
+
+            img_jogador1.src = imagens[2];
+
+            figura_sorteio1 = "Pedra";
+            figuras_sorteadas1.push(figura_sorteio1);
+
+        }
+
+
+        //Colocando o src da imagem 2 de acordo com o resultado do sorteio2
+        if (sorteio2 == 0) {
+
+            img_jogador2.src = imagens[0];
+
+            figura_sorteio2 = "Papel";
+            figuras_sorteadas2.push(figura_sorteio2);
+
+        } else if (sorteio2 == 1) {
+
+            img_jogador2.src = imagens[1];
+
+            figura_sorteio2 = "Tesoura";
+            figuras_sorteadas2.push(figura_sorteio2);
+
+        } else {
+
+            img_jogador2.src = imagens[2];
+
+            figura_sorteio2 = "Pedra";
+            figuras_sorteadas2.push(figura_sorteio2);
+
+        }
+
+
+        //Verificando qual dos jogadores é o vencedor
+        if (sorteio1 == sorteio2) {
+
+            div_result.innerHTML = `Resultado: <b>Empate</b>`;
+
+            vencedor = "Empate";
+            jogador_vencedor.push(vencedor);
+
+        } else if (sorteio1 == 0 && sorteio2 == 1) {
+
+            div_result.innerHTML = `Resultado: <b>Jogador 2 Venceu porque Tesoura corta Papel</b>`;
+
+            vencedor = "Jogador 2 ganhou";
+            jogador_vencedor.push(vencedor);
+
+        } else if (sorteio1 == 0 && sorteio2 == 2) {
+
+            div_result.innerHTML = `Resultado: <b>Jogador 1 Venceu porque Papel cobre Pedra</b>`;
+
+            vencedor = "Jogador 1 ganhou";
+            jogador_vencedor.push(vencedor);
+
+        } else if (sorteio1 == 1 && sorteio2 == 2) {
+
+            div_result.innerHTML = `Resultado: <b>Jogador 2 Venceu porque Pedra quebra Tesoura</b>`;
+
+            vencedor = "Jogador 2 ganhou";
+            jogador_vencedor.push(vencedor);
+
+        } else if (sorteio1 == 1 && sorteio2 == 0) {
+
+            div_result.innerHTML = `Resultado: <b>Jogador 1 Venceu porque Tesoura corta Papel</b>`;
+
+            vencedor = "Jogador 1 ganhou";
+            jogador_vencedor.push(vencedor);
+
+        } else if (sorteio1 == 2 && sorteio2 == 0) {
+
+            div_result.innerHTML = `Resultado: <b>Jogador 2 Venceu porque Papel cobre Pedra</b>`;
+
+            vencedor = "Jogador 2 ganhou";
+            jogador_vencedor.push(vencedor);
+
+        } else {
+
+            div_result.innerHTML = `Resultado: <b>Jogador 1 Venceu porque Pedra quebra Tesoura</b>`;
+
+            vencedor = "Jogador 1 ganhou";
+            jogador_vencedor.push(vencedor);
+
+        }
+
+
+    }
+
+
+
+    function intervalo() {
+
+        var valor_de = Number(inp_de.value);
+        var valor_ate = Number(inp_ate.value);
+
+        div_listagem.innerHTML = "";
+
+        //Verificando se o intervalo digitado é valido
+        if (valor_de < 0 && valor_ate > rodada && valor_de > valor_ate) {
+
+            alert('Intervalos Invalidos');
+
+        } else {
+
+            //Laço que mostra a listagem na tela
+            for (var contador = valor_de; contador <= valor_ate; contador++) {
+
+                div_listagem.innerHTML += `Rodada ${contador} - ${figuras_sorteadas1[contador - 1]} X ${figuras_sorteadas2[contador - 1]} - ${jogador_vencedor[contador - 1]}<br> <br> `;
+
+            }
+
+        }
+
+    }
+
+
+
+</script>
