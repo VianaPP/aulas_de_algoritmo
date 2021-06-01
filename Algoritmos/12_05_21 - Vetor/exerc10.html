@@ -15,6 +15,7 @@
     Digite o nome da linha que já pegou <input type="text" id="inp_nome">
     <button onclick="pesquisa()">Pesquisar</button><br><br>
 
+    <div id="linha_usuario"></div>
     <div id="result"></div>
 </body>
 
@@ -26,26 +27,33 @@
 
     function gravar() {
         buzoes.push(inp_linha.value);
+        linha_usuario.innerHTML += `${inp_linha.value}<br>`;
     }
 
     function pesquisa() {
 
+        result.innerHTML = '';
+
         var quantidade_linha = 0;
+        var ordem = [];
+        var pesquisa = inp_nome.value;
 
         for (var contador = 0; contador < buzoes.length; contador++) {
-
-            if (inp_nome.value != buzoes[buzoes.indexOf(inp_nome.value)]) {
-
-                result.innerHTML = `Você nunca pegou essa linha`;
-
-            } else if(inp_nome.value == buzoes[contador]){
-                quantidade_linha++;
-
-                result.innerHTML += `Você já pegou essa linha ${quantidade_linha} vezes, nessa ordem ${buzoes[contador].length}`;
-
+            if (buzoes[contador] == pesquisa) {
+                quantidade_linha++
+                ordem.push(contador + 1);
             }
         }
+        
+        if (quantidade_linha == 0) {
 
+            result.innerHTML = `Você nunca pegou essa linha`;
+
+        } else{
+
+            result.innerHTML = `Você já pegou essa linha ${quantidade_linha} vezes, nessa ordem ${ordem}`;
+
+        }
 
     }
 

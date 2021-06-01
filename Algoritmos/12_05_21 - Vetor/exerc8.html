@@ -41,16 +41,15 @@
 
         for (var contador = 0; contador < notas.length; contador++) {
 
-            if (notas[contador] >= inp_comeco.value && notas[contador] <= inp_final.value) {
+            if (notas[contador] <= Number(inp_final.value) && notas[contador] >= Number(inp_comeco.value)) {
                 intervalo++;
                 result.innerHTML += `${notas[contador]}<br>`;
                 
                 soma += notas[contador];
-            }
-            
+            }            
         }
 
-        media = soma / --contador;
+        media = soma / intervalo;
         result.innerHTML += `Foram cadastras ${intervalo} notas que estão no intervalo de  ${inp_comeco.value} até ${inp_final.value} e a média dessas notas é ${media.toFixed(1)}`;
 
     }
