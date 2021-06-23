@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 44</title>
+</head>
+<body>
+
+    <input placeholder="Nome do time" id="inp_nome">
+    <input placeholder="Vitorias" id="inp_vitorias">
+    <input placeholder="Empates" id="inp_empates">
+    <input placeholder="Derrotas" id="inp_derrotas"><br>
+    
+    <button onclick="cadastrar()">Cadastrar</button><br><br>
+
+    <input id="inp_pesquisa" placeholder="Qual cadastro quer rever?"> 
+    <button onclick="pesquisa(Number(inp_pesquisa.value))">Pesquisar</button><br>
+    <div id="div_pesquisa"></div>
+    
+</body>
+</html>
+
+<script>
+
+    const campanhas = [];
+
+    function cadastrar() {
+
+        const nova_campanha = {
+            time: inp_nome.value,
+            vitorias: Number(inp_vitorias.value), 
+            empates: Number(inp_empates.value),
+            derrotas: Number(inp_derrotas.value),   
+        };
+        
+
+        campanhas.push(nova_campanha);
+
+    }
+
+    function pesquisa(posicao) {
+
+        const campanha_encontrada = campanhas[posicao-1];
+        div_pesquisa.innerHTML = `
+        Time: ${campanha_encontrada.time}<br>
+        Vitorias: ${campanha_encontrada.vitorias}<br>
+        Empates: ${campanha_encontrada.empates}<br>
+        Derrotas: ${campanha_encontrada.derrotas}<br>`;
+
+    }
+
+
+</script>

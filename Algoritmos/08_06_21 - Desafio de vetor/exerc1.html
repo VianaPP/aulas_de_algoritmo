@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execício 1</title>
+</head>
+<style>
+    #btn_juntar {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <span>Entre com os numeros da primeira lista</span> <input type="text" id="inp_l1">
+    <button onclick="cad_l1()">Lista1</button><br><br>
+    <span>Entre com os numeros da segunda lista</span> <input type="text" id="inp_l2">
+    <button onclick="cad_l2()">Lista2</button><br><br>
+
+    <button onclick="mostrar_l1()">Mostrar L1</button>
+    <button onclick="mostrar_l2()">Mostrar L2</button>
+    <button id="btn_juntar" onclick="juntar()">Juntar</button><br><br>
+
+    <span id="resposta"></span>
+</body>
+
+</html>
+
+<script>
+
+    var nums_l1 = [];
+    var nums_l2 = [];
+
+
+    function cad_l1() {
+
+        if (inp_l1.value < nums_l1[nums_l1.length - 1]) {
+
+            alert("os numeros não estao em ordem crescente!");
+
+        } else {
+
+            nums_l1.push(Number(inp_l1.value));
+            inp_l1.value = '';
+            verificar_btn_juntar();
+
+        }
+
+    }
+
+    function cad_l2() {
+
+        if (inp_l2.value < nums_l2[nums_l2.length - 1]) {
+
+            alert("os numeros não estao em ordem crescente!");
+
+        } else {
+
+            nums_l2.push(Number(inp_l2.value));
+            inp_l2.value = '';
+            verificar_btn_juntar();
+
+        }
+
+    }
+
+    function verificar_btn_juntar() {
+
+        if (nums_l1.length >= 1 && nums_l2.length >= 1) {
+
+            btn_juntar.style.display = 'inline';
+
+        }
+
+    }
+
+    function mostrar_l1() {
+
+        resposta.innerHTML = ``;
+
+        for (var i = 0; i < nums_l1.length; i++) {
+
+            resposta.innerHTML += `${nums_l1[i]}<br>`;
+
+        };
+
+    }
+
+    function mostrar_l2() {
+
+        resposta.innerHTML = ``;
+
+        for (var i = 0; i < nums_l2.length; i++) {
+
+            resposta.innerHTML += `${nums_l2[i]}<br>`;
+
+        };
+
+    }
+
+    function juntar() {
+
+        resposta.innerHTML = ``;
+
+        for (var i = 0; i < (nums_l1.length + nums_l2.length); i++) {
+
+            if (nums_l1[i] < nums_l2[i]) {
+
+                resposta.innerHTML += `${nums_l1[i]}<br>${nums_l2[i]}<br>`;
+
+            }
+            if (nums_l1[i] > nums_l2[i]) {
+
+                resposta.innerHTML += `${nums_l2[i]}<br>${nums_l1[i]}<br>`;
+            }
+
+
+        }
+
+
+    }
+
+
+</script>

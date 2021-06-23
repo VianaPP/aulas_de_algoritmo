@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<style>
+    #elementos_saque {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <div id="elementos_saque">
+        Digite o valor a sacar <input type="text" id="inp_saque">
+        <button onclick="saque()">Solicitar Saque</button><br>
+    </div>
+
+    <select id="slc_saque">
+        <option value="">----- Selecione o Valor de nota do caixa -----</option>
+        <option value="2">2</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <button id="btn_registrar" onclick="registrar()">Registrar Nota</button><br>
+    <button onclick="iniciar()" id="btn_iniciar">Iniciar Saque</button>
+
+
+</body>
+
+</html>
+
+<script>
+
+    const valor_notas = [];
+
+    function registrar() {
+
+        valor_notas.push(Number(slc_saque.value));
+
+    }
+
+    function iniciar() {
+        slc_saque.style.display = 'none';
+        btn_registrar.style.display = 'none';
+        elementos_saque.style.display = 'block';
+        btn_iniciar.style.display = 'none'
+    }
+
+    function saque() {
+
+        const saque = Number(inp_saque.value);
+
+        for (var i = 0; i < valor_notas.length; i++) {
+
+            if (valor_notas.length < 1) {
+
+                if (saque % valor_notas[i] == 0) {
+
+                    alert('Saque OK');
+                    break;
+                } else {
+
+                    alert('Valor impossível de sacar devido ás notas disponíveis')
+                    break;
+
+                }
+
+
+            } else if (valor_notas.indexOf('2') > -1 && saque >= 2) {
+
+                if (saque % 2 == 0) {
+
+                    alert('Saque OK');
+                    break;
+
+                } else if (valor_notas.indexOf('5') > -1) {
+
+                    if (saque % 5 == 0 || ((saque - 5) % 2 == 0 && saque > 4)) {
+
+                        alert('Valor impossível de sacar devido ás notas disponíveis')
+                        break;
+
+                    }
+                    else {
+
+                        alert('Valor impossível de sacar devido ás notas disponíveis')
+                        break;
+
+                    }
+
+                } else {
+
+                    alert('Valor impossível de sacar devido ás notas disponíveis')
+                    break;
+
+                }
+
+            }
+            else {
+
+                alert('Valor impossível de sacar devido ás notas disponíveis')
+                break;
+
+            }
+
+        }
+
+    }
+
+</script>
